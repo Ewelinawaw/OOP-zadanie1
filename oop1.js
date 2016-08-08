@@ -7,16 +7,19 @@
 $(function(){
 
     //1.  stworzenie funkcji konstruującej (“klasę”) telefonu
-    function Telefon(marka, cena, kolor, model) {
+    function Telefon(marka, cena, kolor, model, calculateWarrantyCost) {
         this.marka = marka;
         this.cena = cena;
         this.kolor = kolor;
         this.model = model;
+        this.calculateWarrantyCost = function calculateWarrantyCost() {
+            wynik = this.cena * 0,08;
+        }
     }
     //2. za pomocą prototypu, utworzenie dla klasy Telefon metody o nazwie printInfo opisującej telefon za pomocą console.log
     Telefon.prototype.printInfo = function() {
-        console.log('Marka telefonu to ' + this.marka + ', kolor to ' + this.kolor + ', a cena to ' + this.cena + '.' + ', model to ' + this.model + '.');
-    }
+        console.log('Marka telefonu to ' + this.marka + ', kolor to ' + this.kolor + ', a cena to ' + this.cena + '.' + ', model to ' + this.model + '.' + ', cena przedluzonej gwarancji to' + '.' );
+    };
 
     //3. obiekty, które będą przedstawiać następujące modele telefonów:
     var iPhone6S = new Telefon('Apple', 2250, 'srebrny', 6.1);
@@ -30,6 +33,5 @@ $(function(){
 
 
 });
-
 
 
